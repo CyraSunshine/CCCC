@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music!!! Woohoo!</title>
+</head>
+<header>
+    <h1>Music!!</h1>
+</header>
+<body style="position: relative;">
+    <div id="WW" style="background-color: red; width: 250px; height: 250px; border: 3px darkred solid; position: absolute; left: 50px;" onclick="openAlbumHolster(50)" open=0>
+        <h2>Will Wood</h2>
+        
+    </div>
+
+    <script>
+        function createAlbumHolsters(){
+
+        }
+
+        albumHolsterList = [
+            [50,] // positions
+        ] 
+
+        // stolen from http://vikku.info/codesnippets/javascript/forcing-javascript-to-abort-stop-javascript-execution-at-any-time/
+
+        function betterBreak()
+            {
+               throw new Error('This is not an error.');
+            }
+
+        function openAlbumHolster(amount){
+            let animate = null;
+            let albumHolster = document.getElementById('WW'); // generalise // maybe need to turn these back to var ^ V
+            let currentLeftSidePosition = albumHolster.offsetLeft;
+            albumHolster.setAttribute('onclick','');   
+            clearInterval(animate);
+
+            animate = setInterval(function(){
+                if (!parseInt(albumHolster.getAttribute('open'))){ // left to right
+                    albumHolster.setAttribute('onclick','')
+                    if (currentLeftSidePosition==albumHolsterList[0][0]+amount){
+                        clearInterval(animate);
+                        albumHolster.setAttribute('open','1');
+                        albumHolster.setAttribute('onclick','openAlbumHolster('+amount+')');
+                        betterBreak()
+                    };
+                    currentLeftSidePosition++;
+                    albumHolster.style.left = currentLeftSidePosition+'px'
+                    
+                }
+
+                if (parseInt(albumHolster.getAttribute('open'))){ // right to left
+                    albumHolster.setAttribute('onclick','')
+                    if (currentLeftSidePosition==albumHolsterList[0][0]){
+                        clearInterval(animate);
+                        albumHolster.setAttribute('open','0')
+                        albumHolster.setAttribute('onclick','openAlbumHolster('+amount+')');
+                        betterBreak()
+                    };
+                    currentLeftSidePosition--;
+                    albumHolster.style.left = currentLeftSidePosition+'px'
+                }
+
+                
+                 })} // doesnt need interval before purple bracket?
+                 
+            // make it work for any articles/divs idk yet
+
+    </script>
+</body>
+</html>
