@@ -23,10 +23,16 @@
     <h1 id="games">We have 0/int games in common</h1>
 
     <script>
-//        var count = 0;
+        var count = 0;
         var cblist = document.getElementsByTagName("input");
         document.getElementById('games').innerHTML = 'We have ' + count + '/' + cblist.length + ' games in common';
-        var main = document.getElementById('main');
+        const main = document.getElementById('main');
+        function Games(link, alt, hyperlink, titleText){
+            this.imagePath = link;
+            this.alt = alt;
+            this.webSite = hyperlink;
+            this.title = titleText
+        }
         const gameList = [
             {}
         ];
@@ -89,7 +95,7 @@
         
 
         function counter() {
-            var count = 0; 
+            count = 0; 
             for (let i = 0; i < cblist.length; i++) {
                 if (cblist[i].type === 'checkbox' && cblist[i].checked) {
                     count++
@@ -140,5 +146,10 @@
     https://www.w3schools.com/howto/howto_js_media_queries.asp
     https://www.w3schools.com/css/css3_mediaqueries.asp
 
+-->
+
+<!--
+    Changelog :
+        Changed 'main' variable to const
 -->
 </html>
