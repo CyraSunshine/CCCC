@@ -27,15 +27,17 @@
         var cblist = document.getElementsByTagName("input");
         document.getElementById('games').innerHTML = 'We have ' + count + '/' + cblist.length + ' games in common';
         const main = document.getElementById('main');
-        function Games(link, alt, hyperlink, titleText){
+        function Games(link, alt, hyperlink, title){
             this.imagePath = link;
-            this.alt = alt;
+            this.altText = alt;
             this.webSite = hyperlink;
-            this.title = titleText
+            this.titleText = title
         }
         const gameList = [
-            {}
+            Games('OMORI.jpg','Omori','https://www.omori-game.com/en','Makes for good gifs'),
+            Games('Rain_World.jpeg','Rain World','https://rainworldgame.com/','⭙ Slugcat :3')
         ];
+        alert(gameList[0].altText) // test
         const atrlist = [
             ['https://www.omori-game.com/en','https://rainworldgame.com/','https://terraria.org/','https://www.factorio.com/','https://store.steampowered.com/franchise/bioshock','https://boomerang-x.com/','https://store.steampowered.com/agecheck/app/501590/','https://store.steampowered.com/app/293780/Crawl/','https://store.steampowered.com/app/322170/Geometry_Dash/','https://store.steampowered.com/app/629090/Horace/','https://play.google.com/store/apps/details?id=com.welikegames.BecameDog&pli=1','https://www.inscryption.com/','https://en.wikipedia.org/wiki/LittleBigPlanet','https://store.steampowered.com/app/1232570/Paper_Beast/','https://www.thinkwithportals.com/','https://store.steampowered.com/app/3590/Plants_vs_Zombies_GOTY_Edition/','https://scrapmechanic.com/','https://www.spore.com/','https://playstarbound.com/','https://www.stardewvalley.net/','https://streetsofrogue.com/','https://store.steampowered.com/app/1293180/SuchArt_Genius_Artist_Simulator/','https://store.steampowered.com/app/1241700/There_Is_No_Game_Jam_Edition_2015/?curator_clanid=45170152','https://freebirdgames.com/games/to-the-moon/','https://store.steampowered.com/app/246900/Viscera_Cleanup_Detail/','https://store.steampowered.com/app/501300/What_Remains_of_Edith_Finch/','https://www.iwannamakergame.com/','https://store.steampowered.com/app/221260/Little_Inferno/','https://www.cleverendeavourgames.com/ultimate-chicken-horse','https://store.steampowered.com/app/264710/Subnautica/','https://re1999.bluepoch.com/en/home/'], // hyperlinks
 
@@ -49,7 +51,7 @@
         ]
 
         function createFigs(){
-            for (var i = 0; i < atrlist[0].length; i++) {
+            for(const element of gameList) {
                 const fig = document.createElement('figure');
                 fig.style.borderStyle = 'solid';
                 fig.style.borderWidth = '2px';
@@ -57,9 +59,6 @@
                 fig.style.display = 'inline-block';
                 fig.style.margin = '1px';
                 fig.style.height = 'auto';
-                
-
-                // MAKE WIDTHS AND HEIGHTS HERE !
 
                 const inp = document.createElement('input');
                 inp.setAttribute('type','checkbox');
@@ -70,15 +69,15 @@
                 inp.style.position = 'absolute';
 
                 const hyp = document.createElement('a');
-                hyp.setAttribute('href',atrlist[0][i]);
+                hyp.setAttribute('href',element.webSite);
                 hyp.setAttribute('target','_blank');
                 hyp.style.width = 'inherit';
                 hyp.style.height = 'inherit';
 
                 const img = document.createElement('img');
-                img.setAttribute('src','games_img/'+atrlist[1][i]);
-                img.setAttribute('alt',atrlist[2][i]);
-                img.setAttribute('title',atrlist[3][i]);
+                img.setAttribute('src','games_img/'+element.imagePath);
+                img.setAttribute('alt',element.altText);
+                img.setAttribute('title',element.titleText);
                 img.style.width = 'inherit';
                 img.style.height = 'inherit';
                 img.style.objectFit = 'fill';
@@ -90,8 +89,50 @@
                 fig.appendChild(inp);
                 fig.appendChild(hyp);
                 hyp.appendChild(img)
-                }
-            }
+            }};
+        //    for (var i = 0; i < atrlist[0].length; i++) {
+        //        const fig = document.createElement('figure');
+        //        fig.style.borderStyle = 'solid';
+        //        fig.style.borderWidth = '2px';
+        //        fig.style.borderImage = 'url() 30 round'; // THIS IS FOR CUSTOM BORDER !!!
+        //        fig.style.display = 'inline-block';
+        //        fig.style.margin = '1px';
+        //        fig.style.height = 'auto';
+        //        
+//
+        //        // MAKE WIDTHS AND HEIGHTS HERE !
+//
+        //        const inp = document.createElement('input');
+        //        inp.setAttribute('type','checkbox');
+        //        inp.onclick=counter()
+        //        inp.style.width = '20px';
+        //        inp.style.height = '20px';
+        //        inp.style.zIndex = '1';
+        //        inp.style.position = 'absolute';
+//
+        //        const hyp = document.createElement('a');
+        //        hyp.setAttribute('href',atrlist[0][i]);
+        //        hyp.setAttribute('target','_blank');
+        //        hyp.style.width = 'inherit';
+        //        hyp.style.height = 'inherit';
+//
+        //        const img = document.createElement('img');
+        //        img.setAttribute('src','games_img/'+atrlist[1][i]);
+        //        img.setAttribute('alt',atrlist[2][i]);
+        //        img.setAttribute('title',atrlist[3][i]);
+        //        img.style.width = 'inherit';
+        //        img.style.height = 'inherit';
+        //        img.style.objectFit = 'fill';
+        //        img.style.maxWidth = '100%';
+        //        img.style.display = 'flex';
+//
+//
+        //        main.insertBefore(fig,main.children[i]);
+        //        fig.appendChild(inp);
+        //        fig.appendChild(hyp);
+        //        hyp.appendChild(img)
+        //        }
+        //    }
         
 
         function counter() {
@@ -150,6 +191,6 @@
 
 <!--
     Changelog :
-        Changed 'main' variable to const
+        Count stays as global variable, closures seem unnecessary
 -->
 </html>
