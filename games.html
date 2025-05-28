@@ -13,7 +13,7 @@
         <a href="index.html">Travel scrapbook</a>
         <a href="games.html">Games</a>
         <a href="music.html">Roar Jukebox</a>
-        <a href="">Wilderness/Crew/Amongst the Lake/Atlas</a>
+        <a href="loveletter.html">Wilderness/Crew/Amongst the Lake/Atlas</a>
     </nav>
     <h1>List of my awesome favourite games !!!</h1>
 </header>
@@ -27,30 +27,43 @@
         var cblist = document.getElementsByTagName("input");
         document.getElementById('games').innerHTML = 'We have ' + count + '/' + cblist.length + ' games in common';
         const main = document.getElementById('main');
-        function Games(link, alt, hyperlink, title){
+        function Game(link, alt, hyperlink, title){
             this.imagePath = link;
             this.altText = alt;
             this.webSite = hyperlink;
-            this.titleText = title
-        }
-        alert('!')
+            this.titleText = title}
         const gameList = [
-            Games('OMORI.jpg','Omori','https://www.omori-game.com/en','Makes for good gifs'),
-            Games('Rain_World.jpeg','Rain World','https://rainworldgame.com/','⭙ Slugcat :3')
-        ];
-        alert('!!')
-        alert(gameList[0].altText) // test
-        const atrlist = [
-            ['https://www.omori-game.com/en','https://rainworldgame.com/','https://terraria.org/','https://www.factorio.com/','https://store.steampowered.com/franchise/bioshock','https://boomerang-x.com/','https://store.steampowered.com/agecheck/app/501590/','https://store.steampowered.com/app/293780/Crawl/','https://store.steampowered.com/app/322170/Geometry_Dash/','https://store.steampowered.com/app/629090/Horace/','https://play.google.com/store/apps/details?id=com.welikegames.BecameDog&pli=1','https://www.inscryption.com/','https://en.wikipedia.org/wiki/LittleBigPlanet','https://store.steampowered.com/app/1232570/Paper_Beast/','https://www.thinkwithportals.com/','https://store.steampowered.com/app/3590/Plants_vs_Zombies_GOTY_Edition/','https://scrapmechanic.com/','https://www.spore.com/','https://playstarbound.com/','https://www.stardewvalley.net/','https://streetsofrogue.com/','https://store.steampowered.com/app/1293180/SuchArt_Genius_Artist_Simulator/','https://store.steampowered.com/app/1241700/There_Is_No_Game_Jam_Edition_2015/?curator_clanid=45170152','https://freebirdgames.com/games/to-the-moon/','https://store.steampowered.com/app/246900/Viscera_Cleanup_Detail/','https://store.steampowered.com/app/501300/What_Remains_of_Edith_Finch/','https://www.iwannamakergame.com/','https://store.steampowered.com/app/221260/Little_Inferno/','https://www.cleverendeavourgames.com/ultimate-chicken-horse','https://store.steampowered.com/app/264710/Subnautica/','https://re1999.bluepoch.com/en/home/'], // hyperlinks
-
-            ['OMORI.jpg','Rain_World.jpeg','Terraria.jpg','Factorio.jpg','Bioshock.jpg','Boomerang_X.jpg','Bulletstorm.jpg','Crawl.jpg','Geometry_Dash.jpg','Horace.jpg','I_Became_A_Dog.png','Inscryption.jpg','Little_Big_Planet.jpg','Paper_Beast.jpg','Portal.jpg','PvZ.jpg','Scrap_Mechanic.jpg','Spore.jpg','Starbound.jpeg','Stardew_Valley.jpg','Streets_Of_Rogue.jpg','Such_Art.jpg','There_Is_No_Game.jpg','To_The_Moon.jpg','Viscera_Cleanup_Detail.jpg','What_Remains_Of_Edith_Finch.jpg','I_Wanna_Maker.jpg','Little_Inferno.jpg','Ultimate_Chicken_Horse.png','Subnautica.jpg','Reverse_1999.png'], // image source
-
-            ['Omori','Rain World','Terraria','Factorio','Bioshock','Boomerang X','Bulletstorm','Crawl','Geometry Dash','Horace','I Became A Dog','Inscryption','Little Big Planet','Paper Beast','Portal','Plants Versus Zombies','Scrap Mechanic','Spore','Starbound','Stardew Valley','Streets Of Rogue','SuchArt: Genius Artist Simulator','There Is No Game','To The Moon','Viscera Cleanup Detail','What Remains Of Edith Finch','I Wanna Maker','Little Inferno','Ultimate Chicken Horse','Subnautica','Reverse 1999'], // alt text
-
-            ['Makes for good gifs','⭙ Slugcat :3','Put hundreds of hours into it, yet still making shoeboxes','Spaghetti','Fishies','ULTRAKILL before ULTRAKILL','A bit too much swearing','I love trolling people','Only ever beat one demon','Robots >>> people','Best mobile game ever, no competition','I will never forgive myself for spoiling this for [[[7]]]','Countless nights spent creating </3','Interesting looking, but kind of jank','Orange / Blue','My mum\'s favourite game','One of my favourite sandbox games, my pc never enjoyed my buildings','Making levels for no one to play 🔥','Terraria in space with lore','EMILY IS MINE!!!!','GTA if it was good','Crabux supremacy','Best not game','Show me a better visual novel( you can\'t)','Makes for awesome roleplays surprisingly','Really nice atmosphere','Super Mario Maker for the poor','BURN!!!','I love the sheep\'s dance','Underwater terror','It\'s so damn pretty'],  // title text
-
-            ['250px','667px'] // sizes 500-250-150
-        ]
+            new Game('OMORI.jpg','Omori','https://www.omori-game.com/en','Makes for good gifs'),
+            new Game('Rain_World.jpeg','Rain World','https://rainworldgame.com/','⭙ Slugcat :3'),
+            new Game('Terraria.jpg','Terraria','https://terraria.org/','Put hundreds of hours into it, yet still making shoeboxes'),
+            new Game('Factorio.jpg','Factorio','https://www.factorio.com/','Spaghetti'),
+            new Game('Bioshock.jpg','Bioshock','https://store.steampowered.com/franchise/bioshock','Fishies'),
+            new Game('Boomerang_X.jpg','Boomerang X','https://boomerang-x.com/','ULTRAKILL before ULTRAKILL'),
+            new Game('Bulletstorm.jpg','Bulletstorm','https://store.steampowered.com/agecheck/app/501590/','A bit too much swearing'),
+            new Game('Crawl.jpg','Crawl','https://store.steampowered.com/app/293780/Crawl/','I love trolling people'),
+            new Game('Geometry_Dash.jpg','Geometry Dash','https://store.steampowered.com/app/322170/Geometry_Dash/','Only ever beat one demon'),
+            new Game('Horace.jpg','Horace','https://store.steampowered.com/app/629090/Horace/','Robots >>> people'),
+            new Game('I_Became_A_Dog.png','I Became A Dog','https://play.google.com/store/apps/details?id=com.welikegames.BecameDog&pli=1','Best mobile game ever, no competition'),
+            new Game('Inscryption.jpg','Inscryption','https://www.inscryption.com/','I will never forgive myself for spoiling this for [[[7]]]'),
+            new Game('Little_Big_Planet.jpg','Little Big Planet','https://en.wikipedia.org/wiki/LittleBigPlanet','Countless nights spent creating </3'),
+            new Game('Paper_Beast.jpg','Paper Beast','https://store.steampowered.com/app/1232570/Paper_Beast/','Interesting looking, but kind of jank'),
+            new Game('Portal.jpg','Portal','https://www.thinkwithportals.com/','Orange / Blue'),
+            new Game('PvZ.jpg','Plants Versus Zombies','https://store.steampowered.com/app/3590/Plants_vs_Zombies_GOTY_Edition/','My mum\'s favourite game'),
+            new Game('Scrap_Mechanic.jpg','Scrap Mechanic','https://scrapmechanic.com/','One of my favourite sandbox games, my pc never enjoyed my buildings'),
+            new Game('Spore.jpg','Spore','https://www.spore.com/','Making levels for no one to play 🔥'),
+            new Game('Starbound.jpeg','Starbound','https://playstarbound.com/','Terraria in space with lore'),
+            new Game('Stardew_Valley.jpg','Stardew Valley','https://www.stardewvalley.net/','EMILY IS MINE!!!!'),
+            new Game('Streets_Of_Rogue.jpg','Streets Of Rogue','https://streetsofrogue.com/','GTA if it was good'),
+            new Game('Such_Art.jpg','SuchArt: Genius Artist Simulator','https://store.steampowered.com/app/1293180/SuchArt_Genius_Artist_Simulator/','Crabux supremacy'),
+            new Game('There_Is_No_Game.jpg','There Is No Game','https://store.steampowered.com/app/1241700/There_Is_No_Game_Jam_Edition_2015/?curator_clanid=45170152','Best not game'),
+            new Game('To_The_Moon.jpg','To The Moon','https://freebirdgames.com/games/to-the-moon/','Show me a better visual novel( you can\'t)'),
+            new Game('Viscera_Cleanup_Detail.jpg','Viscera Cleanup Detail','https://store.steampowered.com/app/246900/Viscera_Cleanup_Detail/','Makes for awesome roleplays surprisingly'),
+            new Game('What_Remains_Of_Edith_Finch.jpg','What Remains Of Edith Finch','https://store.steampowered.com/app/501300/What_Remains_of_Edith_Finch/','Really nice atmosphere'),
+            new Game('I_Wanna_Maker.jpg','I Wanna Maker','https://www.iwannamakergame.com/','Super Mario Maker for the poor'),
+            new Game('Little_Inferno.jpg','Little Inferno','https://store.steampowered.com/app/221260/Little_Inferno/','BURN!!!'),
+            new Game('Ultimate_Chicken_Horse.png','Ultimate Chicken Horse','https://www.cleverendeavourgames.com/ultimate-chicken-horse','I love the sheep\'s dance'),
+            new Game('Subnautica.jpg','Subnautica','https://store.steampowered.com/app/264710/Subnautica/','Underwater terror'),
+            new Game('Reverse_1999.png','Reverse 1999','https://re1999.bluepoch.com/en/home/','It\'s so damn pretty')];
 
         function createFigs(){
             for(const element of gameList) {
@@ -64,7 +77,7 @@
 
                 const inp = document.createElement('input');
                 inp.setAttribute('type','checkbox');
-                inp.onclick=counter()
+                inp.onclick=counter
                 inp.style.width = '20px';
                 inp.style.height = '20px';
                 inp.style.zIndex = '1';
@@ -86,79 +99,28 @@
                 img.style.maxWidth = '100%';
                 img.style.display = 'flex';
 
-
-                main.insertBefore(fig,main.children[i]);
+                main.insertBefore(fig,main.children[element]);
                 fig.appendChild(inp);
                 fig.appendChild(hyp);
-                hyp.appendChild(img)
-            }};
-        //    for (var i = 0; i < atrlist[0].length; i++) {
-        //        const fig = document.createElement('figure');
-        //        fig.style.borderStyle = 'solid';
-        //        fig.style.borderWidth = '2px';
-        //        fig.style.borderImage = 'url() 30 round'; // THIS IS FOR CUSTOM BORDER !!!
-        //        fig.style.display = 'inline-block';
-        //        fig.style.margin = '1px';
-        //        fig.style.height = 'auto';
-        //        
-//
-        //        // MAKE WIDTHS AND HEIGHTS HERE !
-//
-        //        const inp = document.createElement('input');
-        //        inp.setAttribute('type','checkbox');
-        //        inp.onclick=counter()
-        //        inp.style.width = '20px';
-        //        inp.style.height = '20px';
-        //        inp.style.zIndex = '1';
-        //        inp.style.position = 'absolute';
-//
-        //        const hyp = document.createElement('a');
-        //        hyp.setAttribute('href',atrlist[0][i]);
-        //        hyp.setAttribute('target','_blank');
-        //        hyp.style.width = 'inherit';
-        //        hyp.style.height = 'inherit';
-//
-        //        const img = document.createElement('img');
-        //        img.setAttribute('src','games_img/'+atrlist[1][i]);
-        //        img.setAttribute('alt',atrlist[2][i]);
-        //        img.setAttribute('title',atrlist[3][i]);
-        //        img.style.width = 'inherit';
-        //        img.style.height = 'inherit';
-        //        img.style.objectFit = 'fill';
-        //        img.style.maxWidth = '100%';
-        //        img.style.display = 'flex';
-//
-//
-        //        main.insertBefore(fig,main.children[i]);
-        //        fig.appendChild(inp);
-        //        fig.appendChild(hyp);
-        //        hyp.appendChild(img)
-        //        }
-        //    }
-        
+                hyp.appendChild(img)}};
 
         function counter() {
             count = 0; 
             for (let i = 0; i < cblist.length; i++) {
-                if (cblist[i].type === 'checkbox' && cblist[i].checked) {
-                    count++
-                }
-            }
-            document.getElementById('games').innerHTML = 'We have ' + count + '/' + cblist.length + ' games in common'
-        }
-    createFigs();
-    counter();
-    window.addEventListener('resize',
-    function centering(){
+                console.log(cblist[i].type === 'checkbox');
+                console.log(cblist[i].checked);
+                if (cblist[i].type === 'checkbox' && cblist[i].checked) {count++;}}
+            document.getElementById('games').innerHTML = 'We have ' + count + '/' + cblist.length + ' games in common'}
+
+        createFigs();
+        counter();
+        window.addEventListener('resize',function centering(){
             if (window.innerWidth<window.innerHeight){
                 main.style.display = 'grid';
                 main.style.placeItems = 'center'}
             else{
                 main.style.display = 'inline-block';
-                main.style.placeItems = 'start'
-                }
-            }
-        )
+                main.style.placeItems = 'start'}})
     
     </script>
 </body>
